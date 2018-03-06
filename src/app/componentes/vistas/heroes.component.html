@@ -1,0 +1,22 @@
+<div *ngIf="heroeSeleccionado.nombre">
+    <div>    
+        <label> id: {{heroeSeleccionado.id}}</label>
+    </div>
+    <div>
+        <label> nombre: {{heroeSeleccionado.nombre}}</label>
+        <!--    <input value="{{heroe.nombre}}" placeholder="Nombre Héroe" />-->
+        <input [(ngModel)]="heroeSeleccionado.nombre" placeholder="Nombre Héroe" />
+    </div>
+</div>
+<div *ngIf="heroeSeleccionado.nombre">
+    <h2>
+        Este es mi héroe: {{heroeSeleccionado.nombre | uppercase}}
+    </h2>
+    <button (click)="irDetalle(heroeSeleccionado)">Ver Detalle</button>
+</div>
+<h2> Los Héroes </h2>
+<ul class="heroes">    
+    <li *ngFor="let heroe of heroes" (click)="seleccionar(heroe)" [class.selected]="heroe === heroeSeleccionado">
+        <span class="badge">{{heroe.id}} </span> {{heroe.nombre}}
+    </li>
+</ul>
