@@ -10,6 +10,8 @@ import {Heroe}      from '../clases/heroe'
 
 export class HeroeService {
     
+    private ruta: string = 'http://127.0.0.1:8080/heroes/getHeroes';
+    
     constructor(private http: Http) {
         
     }
@@ -40,8 +42,18 @@ export class HeroeService {
             );
     }
     
-    getHeroesHttp() {
-        
+    getHeroesHttp() : Promise<Heroe[]> {
+        /*
+        return this.http.get(this.ruta)
+        .toPromise()
+        .then(
+            (response) => {
+                let respuesta : any = response;
+                let heroes: Heroe[] = JSON.parse(respuesta._body);
+            }
+        ).catch()
+        */
+        return null;
     }
     
 }
